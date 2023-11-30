@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--styles-->
+    <link rel="stylesheet" href="/public/css/room.css">
+    <link rel="stylesheet" href="/public/css/room-header.css">
+    <link rel="stylesheet" href="/public/css/content-panel.css">
+    <link rel="stylesheet" href="/public/css/editor.css">
+    <!--font awesome library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--fabric js library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/521/fabric.min.js"></script>
+    <!--socket io library-->
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+        integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+        crossorigin="anonymous"></script>
+
+    <!--Tags related to font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--FONT CDN LINK INSERT MORE LINK FOR MORE FONTS-->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+    <!--title of app-->
+    <title>Collaborative Greeting Card</title>
+</head>
+
+<body>
+
+    <div class="room">
+
+
+        <!--content-panel-->
+        <div class='panel align-left translateLeft'>
+
+            <div class="head head-1">
+                <span id="c-btn" class="fa fa-angle-right" style="color:white" onclick="toggleContentPanel()"></span>
+            </div>
+            <div class="head head-2">
+                <span id="c-btn" class="fa fa-trash" style="color:orangered" onclick="deleteObjectsFromDB()"></span>
+            </div>
+            <div class="head head-3">
+                <span id="c-btn" class="fa fa-circle" onclick="deleteObjectsFromDB()"></span>
+            </div>
+
+            <div class="content-wrapper">
+                <!--content left wrapper start-->
+                <!--room header-->
+                <div class="room-header">
+                    <!--Home Link-->
+                    <span class="item fa fa-home" onclick="gotoHome()"></span>
+                    <!--add text on canvas-->
+                    <span class="item fa fa-edit" onclick="addText()"></span>
+                    <!--add new canvas-->
+                    <span class="item fa fa-plus" onclick="addNewCanvas()"></span>
+                    <!--copy link-->
+                    <span class="item fa fa-share-nodes" onclick="copyLink()"></span>
+                    <!--save canvas-->
+                    <span class="item fa fa-save" onclick="publishCard()"></span>
+                    <!--navigate to published link-->
+                    <span style="display:none" class="published-link item fa fa-globe"
+                        onclick="navigateToLink()"></span>
+                </div>
+                <!--content left wrapper end-->
+
+                <!--content right wrapper start-->
+                <div class="content-right-wrapper">
+                    <!--content tabs-->
+                    <div class='tabs-button'>
+                        <span id="#_0" class="active-btn" onclick="changeContent(event)">Graphics</span>
+                        <span id="#_1" onclick="changeContent(event)">Images</span>
+                        <span id="#_2" onclick="changeContent(event)">Gifs</span>
+                    </div>
+                    <!--content panels-->
+                    <!--graphic content panel-->
+                    <div class='tab active-tab' id="graphic">
+                        <!--panel header-->
+                        <div class='tab-head'>
+                            <div class='tabs-button'>
+                                <span id="#_0" class="active-btn" onclick="changeInnerContent(event)">Graphics</span>
+                                <span id="#_1" onclick="changeInnerContent(event)">Your Graphics</span>
+                            </div>
+                            <div class='upload-file' style="margin:auto 10px">
+                                <input type="file" name="graphic" onchange="uploadContent(event)" />
+                                <span class='fas fa-add'></span>
+                            </div>
+                        </div>
+
+                        <!--display tab contents-->
+                        <div class='tab-contents'></div>
+                    </div>
+
+                    <!--image content panel-->
+                    <div class='tab' id="image">
+                        <!--panel header-->
+                        <div class='tab-head'>
+                            <div class='tabs-button'>
+                                <span id="#_0" class="active-btn" onclick="changeInnerContent(event)">Images</span>
+                                <span id="#_1" onclick="changeInnerContent(event)">Your Images</span>
+                            </div>
+                            <div class='upload-file' style="margin:auto 10px">
+                                <input type="file" name="image" onchange="uploadContent(event)" />
+                                <span class='fas fa-add'></span>
+                            </div>
+                        </div>
+
+                        <!--display tab contents-->
+                        <div class='tab-contents'></div>
+                    </div>
+                </div>
+                <!--content right wrapper end-->
+            </div>
+
+        </div>
+
+        <div class="editor-wrapper">
+            <!--editor-->
+            <div class="editor"></div>
+
+            <!--change view-->
+            <div class="change-canvas">
+                <span id="prev" class="fa fa-arrow-left disable" onclick="slide(event)"></span>
+                <span class="active-canvas">Page 0</span>
+                <span id="next" class="fa fa-arrow-right disable" onclick="slide(event)"></span>
+            </div>
+        </div>
+        <!--text tool box-->
+        <div class="tool-box">
+            <form>
+                <!--name of input fields is similar to object property-->
+                <input name="fill" type="color" oninput="updateTextPropery(event)" />
+                <select name="fontFamily" oninput="updateTextPropery(event)"></select>
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script defer src="/public/script/api.js"></script>
+<script defer src="/public/script/helper.js"></script>
+<script defer src="/public/script/room.js"></script>
+<script defer src="/public/script/room-header.js"></script>
+<script defer src="/public/script/content-panel.js"></script>
+<script defer src="/public/script/request.js"></script>
+<script defer src="/public/script/editor.js"></script>
+<script defer src="/public/script/socket.js"></script>
+<script defer src="/public/script/load.js"></script>
+
+</html>

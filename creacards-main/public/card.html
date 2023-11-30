@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--styles-->
+    <link rel="stylesheet" href="/public/css/card.css">
+    <!--font awesome library-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--fabric js library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/521/fabric.min.js"></script>
+      <!--Tags related to font link-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!--FONT CDN LINK INSERT MORE LINK FOR MORE FONTS-->
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+    <!--title of app-->
+    <title>Collaborative Greeting Card</title>
+</head>
+
+<body>
+
+    <div class="room">
+        <div class="cards"></div>
+        <!--change view-->
+        <div class="setting">
+            <span style="margin:auto 0" class="fa fa-home" onclick="gotoRoom()"></span>
+            <button onclick="downloadImage()">Save as PNG</button>
+            
+            <div class="change-canvas">
+                <span id="prev" class="fa fa-arrow-left" onclick="slide(event)"></span>
+                <span class="active-canvas">Page 1</span>
+                <span id="next" class="fa fa-arrow-right" onclick="slide(event)"></span>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="/public/script/helper.js"></script>
+<script src="/public/script/editor.js"></script>
+<script src="/public/script/card.js"></script>
+
+</html>
