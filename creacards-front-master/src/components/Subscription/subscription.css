@@ -1,0 +1,45 @@
+.subscriptions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width:400px;
+    margin: 20% auto;
+}
+
+.subscriptions>.subscription {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 5%;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid #eee;
+}
+
+.subscriptions>.subscription>h3 {
+    margin: auto 0;
+}
+
+.subscriptions>.subscription>ul {
+    list-style: none;
+    width: fit-content;
+    padding: 0;
+    margin: auto;
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.subscriptions>.subscription>ul>li {
+    margin: 10px;
+}
+
+.subscriptions>.subscription>button {
+    width: fit-content;
+    border: transparent;
+    padding: 2px 10px;
+    border-radius: 10px;
+    background-color: royalblue;
+    color: white;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,31 @@
+header {
+    width: 90%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "poppins";
+}
+
+header>h1 {
+    text-align: center;
+    margin: 0;
+}
+
+header>.btn {
+    cursor: "pointer";
+    margin: 25px 0;
+}
+
+@media only screen and (min-width:600px) {
+    header {
+        width:95%;
+        padding:10px 2.5%;
+        flex-direction: row;
+    }
+
+    header>h1 {
+        text-align: left;
+    }
+}

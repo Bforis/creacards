@@ -1,0 +1,84 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.imgContainer {
+    width: 24%;
+    box-sizing: border-box;
+    margin: 5px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.gallery div img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.func {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    box-sizing: border-box;
+    left: 0%;
+    right: 0%;
+    transform: translateY(-50%);
+
+    box-sizing: border-box;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.imgContainer:hover img {
+    opacity: 0.3;
+}
+
+.imgContainer:hover .func {
+    opacity: 1;
+    z-index: 20;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+
+}
+
+.pagination li {
+    padding: 2px 8px;
+    background-color: rgb(16, 202, 215);
+    color: #fff;
+    margin: 0px 2px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.pagination .active {
+    background-color: rgb(112, 112, 210);
+}
+
+@media screen and (max-width:999px) {
+    .imgContainer {
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .imgContainer {
+        width: 32%;
+    }
+
+    .imgContainer .btn {
+        padding: 3px 9px;
+    }
+}

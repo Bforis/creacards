@@ -1,0 +1,41 @@
+.profile {
+    width: 90%;
+    max-width: 350px;
+    list-style: none;
+    padding: 2.5%;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: 1px solid grey;
+    font-family: "poppins";
+    font-size: 1.2rem;
+}
+
+.profile>li {
+    display: flex;
+    width: 90%;
+    padding: 5%;
+    border-bottom: 1px solid grey;
+}
+
+.profile>li>span {
+    display: block;
+}
+
+.profile>li>.label {
+    width: 40%;
+    color: grey;
+}
+
+.buy-btn {
+    display: block;
+    width: 90%;
+    max-width: 350px;
+    list-style: none;
+    padding:10px 20px;
+    margin:20px auto;
+    color:white;
+    border-radius: 5px;
+    border: transparent;
+    background-color: rgb(75, 118, 197);
+    font-size: 1.2rem;
+}

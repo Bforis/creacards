@@ -1,0 +1,27 @@
+.rooms {
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+    padding: 2.5%;
+    text-align: center;
+}
+
+.rooms>.room {
+    width: 95%;
+    margin: 2.5%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.rooms>.room>div {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    padding: 2.5%;
+}
+
+.rooms>.room>.room-upper>.action {
+    cursor:"pointer"
+}

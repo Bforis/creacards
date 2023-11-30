@@ -1,0 +1,43 @@
+.content-wrapper {
+    position: relative;
+    width: 40%;
+    padding: 2.5%;
+    margin:2%;
+    border: 1px solid rgba(128, 128, 128, 0.233);
+    border-radius: 4px;
+    font-family: sans-serif;
+}
+
+.content-wrapper>.options {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.content-wrapper > .options > .delete:hover {
+    color: orangered;
+}
+
+.content-wrapper >.options > span:nth-child(1){
+    color:grey;
+    font-size: 0.9rem;
+}
+
+.content-wrapper>.content>img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-wrapper>.content>p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #292a2d;
+}
+
+@media only screen and (min-width:1000px) {
+    .content-wrapper {
+        width: 13%;
+        padding: 1%;
+        margin: 1%;
+    }
+}
