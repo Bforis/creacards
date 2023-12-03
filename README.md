@@ -1,2 +1,2 @@
 # creacards
-Attempt to create a greeting card application with collaborative real-time canvas
+Attempt to create a greeting card application with collaborative real-time canvas, prototype unfinished.
